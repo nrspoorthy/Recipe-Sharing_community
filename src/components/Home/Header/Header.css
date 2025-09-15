@@ -1,0 +1,117 @@
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  margin: 0px;
+  background: #c8c09d;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+.header-left {
+  max-width: 500px;
+  position: relative;
+  z-index: 5;
+  margin-left: 5%;
+}
+
+.title-1 {
+  font-family: 'LillyBelle', cursive;
+  font-size: 80px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  color: #eee;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.buy-btn {
+  background: #e87c86;
+  border: none;
+  padding: 14px 34px;
+  font-size: 18px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.buy-btn:hover {
+  background: #d15b64;
+}
+
+.header-right {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-img {
+  width: 650px;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-1 {
+  position: absolute;
+  top: -100px;
+  right: -90px;
+  width: 280px;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.icon-2 {
+  position: absolute;
+  bottom: 1;
+  left: -110px;
+  width: 240px;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    
+    
+  }
+
+  .header-left {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  .icon-1, .icon-2 {
+    display: none;
+  }
+
+  .main-img {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+/* Brush-stroke bottom image */
+.header-section > img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  pointer-events: none; /* don't block clicks */
+}
+

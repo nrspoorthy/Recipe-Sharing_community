@@ -1,0 +1,121 @@
+/* Container */
+.recipe-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #222;
+}
+
+/* Title */
+.recipe-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.recipe-sub {
+  text-align: center;
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+/* Main layout: Ingredients + Image */
+.recipe-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Ingredients */
+.ingredients-box {
+  flex: 1;
+  min-width: 300px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+.ingredients-box h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.ingredients-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ingredients-box li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+.ingredients-box li:last-child {
+  border-bottom: none;
+}
+.measure {
+  font-weight: 600;
+  color: #333;
+}
+.ingredient {
+  color: #666;
+}
+
+/* Recipe Image */
+.recipe-img {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+}
+.recipe-img img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+.recipe-img img:hover {
+  transform: scale(1.03);
+}
+
+/* Instructions */
+.instructions-box {
+  margin-top: 50px;
+  background: #fafafa;
+  padding: 30px;
+  border-radius: 16px;
+  line-height: 1.7;
+  font-size: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+.instructions-box h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 100px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .recipe-main {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .recipe-img {
+    margin-bottom: 30px;
+  }
+}
