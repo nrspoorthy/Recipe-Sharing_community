@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Slider from "react-slick"; // ✅ Import Slider
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick"; 
+import "./CategoryDetail.css"
 import "./CategoryDetail.css";
 import Navbar from "../Home/Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -31,26 +30,30 @@ export default function CategoryDetail() {
   }, [categoryName]);
 
   const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,   // Adjust how many cards per slide
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-        }
+  dots: true,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 5,
+  rows: meals.length <= 4 ? 1 : 2, // 🔥 dynamically set rows
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        rows: 1 // mobile and tablet: always 1 row
       }
-    ]
-  };
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        rows: 1
+      }
+    }
+  ]
+};
+
 
   if (loading) {
     return <h1 style={{ textAlign: "center", marginTop: "50px" }}>Loading...</h1>;
@@ -65,8 +68,8 @@ export default function CategoryDetail() {
           <p>No meals found for this category.</p>
         ) : (
           <Slider {...sliderSettings}>
-            {meals.map((meal) => (
-              <div key={meal.idMeal} className="meal-slide">
+            {meals.map((meal, index) => (
+              <div key={meal.idMeal} className="meal-slide" data-aos="fade-up" data-aos-delay={index * 100}>
                 <Link to={`/recipe/${meal.idMeal}`}>
                   <div className="meal-card">
                     <img src={meal.strMealThumb} alt={meal.strMeal} />
@@ -76,6 +79,7 @@ export default function CategoryDetail() {
               </div>
             ))}
           </Slider>
+
         )}
       </div>
       <Footer />

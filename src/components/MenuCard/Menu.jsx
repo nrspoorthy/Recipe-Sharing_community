@@ -34,11 +34,11 @@ if(!loading){
     return (
   <>
     <Navbar />
-    <div className="menu-section-wrapper">  {/* new wrapper */}
+    <div className="menu-section-wrapper">  
       <div className="menu-container">
         <h1 className='title'>Yummy & Tasty</h1>
         <h1 className="menu-title">Available Now</h1>
-        <div className="menu-grid">
+        <div className="menu-grid" data-aos="fade-up">
           {menu.map((item) => (
             <div className="menu-card" key={item.idCategory}>
               <div className="menu-left">

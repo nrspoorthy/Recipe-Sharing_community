@@ -20,11 +20,17 @@ export default function Home() {
     </div>
     
       <div data-aos="fade-up"
-     data-aos-offset="500"
+     data-aos-offset="300"
      data-aos-easing="ease-in-sine">
       <SampleRecipe/>
       </div>
+
+      <div data-aos="fade-up"
+          data-aos-offset="400"
+          data-aos-anchor-placement="center-center">
       <Footer/>
+    </div>
+      
       
     </div>
   )

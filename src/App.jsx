@@ -1,9 +1,10 @@
-
+import './App.css'
 import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import Home from './components/Home/Home'
 import CategoryDetail from './components/CategoryDetail/CategoryDetail';
 import Menu from './components/MenuCard/Menu';
 import RecipeDetails from './components/RecipeDetails/RecipeDetails';
+import Mylist from './components/Mylist/Mylist';
 
 
 
@@ -28,6 +29,7 @@ function App() {
               <Route path="/categories/:categoryName" element={<CategoryDetail/>}></Route>
               <Route path = "/menu" element={<Menu/>}></Route>
               <Route path = "/recipe/:idMeal" element={<RecipeDetails/>}></Route>
+              <Route path = "/mylist" element={<Mylist/>}></Route>
             </Routes>
       </BrowserRouter>
     </>

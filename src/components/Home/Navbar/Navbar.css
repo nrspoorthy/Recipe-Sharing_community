@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 100vw;
+  /* max-width: 100vw; */
 }
 .nav-link{
   text-decoration: none;
@@ -13,8 +13,21 @@
   transition: all 0.3s ease-in-out;
 
 }
+.Wishlistbtn{
+  background-color:#beb996 ;
+  border-width: 1px;
+  border-color: #333;
+  padding:4%;
+
+}
+.Wishlistbtn:hover{
+  color: lightslategray;
+  margin-top: 0%;
+  border-color: #333;
+}
 .nav-link:hover {
   color: lightslategray;
+  margin-top: 0%;
 }
 
 /* Active link */
@@ -50,6 +63,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: #222;
+
 }
 
 .ul li {

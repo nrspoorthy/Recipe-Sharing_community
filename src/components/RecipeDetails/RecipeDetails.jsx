@@ -4,14 +4,31 @@ import "./RecipeDetails.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Home/Navbar/Navbar";
 import "aos/dist/aos.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../../redux/favoritesSlice";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 export default function RecipeDetails() {
   const { idMeal } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites);
 
+  const alreadyFavorite = recipe
+    ? favorites.some((item) => item.idMeal === recipe.idMeal)
+    : false;
+
+  const handleFavorite = () => {
+    if (alreadyFavorite) {
+      dispatch(removeFavorite(recipe.idMeal));
+    } else {
+      dispatch(addFavorite(recipe));
+    }
+  };
+
+  useEffect(() => {
     const fetchRecipeDetails = async () => {
       try {
         const response = await fetch(
@@ -42,15 +59,40 @@ export default function RecipeDetails() {
       <div className="recipe-container">
         {/* Title */}
         <h1 className="recipe-title" data-aos="fade-up">
-          {recipe.strMeal}
+          <span className="title-main">{recipe.strMeal.split(" ")[0]}</span>{" "}
+          <span className="title-highlight">
+            {recipe.strMeal.split(" ").slice(1).join(" ")}
+          </span>
         </h1>
+
+        {/* Category + Area */}
         <p className="recipe-sub" data-aos="fade-up">
           {recipe.strCategory} • {recipe.strArea}
         </p>
+        <img
+          src="https://foodily.vercel.app/_next/static/media/separate.5241f059.png"
+          className="bgborder"
+          alt="divider"
+        />
 
-        {/* Layout: Ingredients (left) + Image (right) */}
+        {/* Main Section */}
         <div className="recipe-main">
-          <div className="ingredients-box" data-aos="fade-right">
+          {/* Left: Recipe Image */}
+          <div className="recipe-img" data-aos="fade-right">
+            <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+
+            {/* Heart Icon */}
+            <button className="fav-btn" onClick={handleFavorite}>
+              {alreadyFavorite ? (
+                <FaHeart className="heart filled" />
+              ) : (
+                <FaRegHeart className="heart" />
+              )}
+            </button>
+          </div>
+
+          {/* Right: Ingredients */}
+          <div className="ingredients-box" data-aos="fade-left">
             <h2>Ingredients</h2>
             <ul>
               {Array.from({ length: 20 }).map((_, i) => {
@@ -66,10 +108,6 @@ export default function RecipeDetails() {
                 );
               })}
             </ul>
-          </div>
-
-          <div className="recipe-img" data-aos="fade-left">
-            <img src={recipe.strMealThumb} alt={recipe.strMeal} />
           </div>
         </div>
 
