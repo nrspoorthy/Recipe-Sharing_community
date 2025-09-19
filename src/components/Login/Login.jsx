@@ -21,7 +21,7 @@ export default function Login() {
 
     <div className="bg-login">
         
-    <div className="login-container" data-aos="fade-up" data-aos-delay="300" >
+    <div className="login-container" data-aos="fade-up" data-aos-delay="100" >
         <h1>Delicious</h1>
         <h2>Recipes</h2>
 
