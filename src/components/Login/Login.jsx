@@ -1,40 +1,69 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 export default function Login() {
-    const[username,Setusername] = useState("")
-    const[password,Setpassword] = useState("")
-    const navigate = useNavigate()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-    const handleLogin = () => {
-        if(username === "student" && password==="student@2025"){
-            localStorage.setItem("isAuthenticated", "true")
-            navigate("/")
-        }else{
-            alert("Invalid Credentials")
-        }
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (username === "student" && password === "student@2025") {
+      localStorage.setItem("isAuthenticated", "true");
+      navigate("/");
+    } else {
+      alert("Invalid Credentials");
     }
+  };
 
   return (
-    <div>
-      <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h1>Login</h1>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => Setusername(e.target.value)}
-      />
-      <br />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => Setpassword(e.target.value)}
-      />
-      <br />
-      <button onClick={handleLogin}>Login</button>
+
+    <div className="bg-login">
+        
+    <div className="login-container" data-aos="fade-up" data-aos-delay="300" >
+        <h1>Delicious</h1>
+        <h2>Recipes</h2>
+
+        <img 
+            src="https://foodily.vercel.app/assets/images/icons/icon-1.png" 
+            alt="decor icon" 
+            className="decor-login decor-left-login"
+            data-aos = "fade-right"
+            data-aos-delay="600" 
+        />
+        <img 
+            src="https://foodily.vercel.app/assets/images/icons/icon-1.png" 
+            alt="decor icon" 
+            className="decor-login decor-right-login"
+            data-aos = "fade-left"
+            data-aos-delay="600"
+        />
+      <div className="login-box">
+        {/* <h2 className="title-2">Login</h2> */}
+        <form onSubmit={handleLogin} className="login-form">
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            className="login-input"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="login-input"
+          />
+          <button type="submit" className="login-btn">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
     </div>
-  )
+  );
 }
