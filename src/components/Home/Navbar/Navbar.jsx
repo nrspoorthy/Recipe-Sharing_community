@@ -14,7 +14,7 @@ function Navbar() {
         {/* list */}
             <div>
                 <ul className='ul'>
-                    <li><Link to="/"  className="nav-link">Home</Link></li>
+                    <li><Link to="/home"  className="nav-link">Home</Link></li>
                     <li  className="nav-link">About</li>
                     <li><Link to = "/menu" className="nav-link">Menu</Link></li>
                     <li  className="nav-link">Gallery</li>
