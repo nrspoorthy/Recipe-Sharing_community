@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/favoritesSlice";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import StarRating from "../StarRating/StarRating";
 
 export default function RecipeDetails() {
   const { idMeal } = useParams();
@@ -64,6 +65,8 @@ export default function RecipeDetails() {
             {recipe.strMeal.split(" ").slice(1).join(" ")}
           </span>
         </h1>
+
+        <StarRating initialRating={0} maxStars={5}/>
 
         {/* Category + Area */}
         <p className="recipe-sub" data-aos="fade-up">

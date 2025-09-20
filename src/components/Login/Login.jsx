@@ -11,7 +11,7 @@ export default function Login() {
     e.preventDefault();
     if (username === "student" && password === "student@2025") {
       localStorage.setItem("isAuthenticated", "true");
-      navigate("/");
+      navigate("/home");
     } else {
       alert("Invalid Credentials");
     }
